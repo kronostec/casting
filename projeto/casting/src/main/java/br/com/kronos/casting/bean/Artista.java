@@ -3,15 +3,11 @@ package br.com.kronos.casting.bean;
 import java.util.List;
 
 import org.joda.time.LocalDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.kronos.casting.enumeration.EstadoCivil;
 
-@Document(collection = "artista")
 public class Artista implements Bean {
 
-	@Id
 	private Long cpf;
 
 	private String nome;
