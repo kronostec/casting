@@ -1,0 +1,17 @@
+https://www.npmjs.com/package/joi //valida��o de objcs
+http://underscorejs.org/
+https://github.com/aheckmann/gm //imagens functions
+https://www.npmjs.com/package/bcrypt //encode
+https://www.npmjs.com/package/dateformat
+https://www.npmjs.com/package/html-minifier
+https://www.npmjs.com/package/cron
+http://moutjs.com/
+https://www.npmjs.com/package/ip
+https://www.npmjs.com/package/emailjs
+http://marcoslin.github.io/angularAMD/#/home angularjs + requirejs
+
+//front component
+http://imperavi.com/kube/tools/js-modal/
+
+//others front componets
+http://webdesigncube.com/2014/best-responsive-html5-frameworks/
