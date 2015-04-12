@@ -5,7 +5,7 @@
     <h1>Ie Ieeeeeeee ${nome}</h1>
     
     <h1>
-{{message}} <---
+{{message}} ---
 </h1>
 <a href="#/contato">Contato</a>
 <button onclick="$('#message-1').message();" class="btn btn-blue">Show Message</button>
