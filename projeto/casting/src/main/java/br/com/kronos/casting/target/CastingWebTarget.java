@@ -1,4 +1,4 @@
-package br.com.kronos.casting.api;
+package br.com.kronos.casting.target;
 
 import java.net.URI;
 import java.util.Map;

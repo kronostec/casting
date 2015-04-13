@@ -11,8 +11,6 @@ public class HomeController extends KronosBaseController {
 
 	@RequestMapping("/*")
 	public String index(Model model){
-		System.out.println("teste");
-		
 		return "public/index";
 	}
 	
