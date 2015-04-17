@@ -1,0 +1,10 @@
+{
+	"colors" : {
+		"colorsUrl" : "http://ui.lumapps.com/css/colors",
+		"menu" : {
+			"bgColor" : "bgc-indigo-500",
+			"fontColor" : "tc-white-1",
+			"btnColor" : "btn--white"
+		}
+	}
+}
