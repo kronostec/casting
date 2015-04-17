@@ -11,7 +11,7 @@ GLOABAL_VARS.app.directive('titlePage', ['$document', function($document) {
 		    },
 		    transclude: true,//pega o conteudo do elemento
 			restrict: "E",
-			templateUrl: "/js/core/diretivas/title-page/titlePage.html" ,
+			templateUrl: "resources/js/core/diretivas/title-page/titlePage.html" ,
 			controller : "TitlePageCtrl",
 	};
 }]); 

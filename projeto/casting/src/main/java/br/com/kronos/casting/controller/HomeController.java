@@ -14,4 +14,23 @@ public class HomeController extends KronosBaseController {
 		return "public/index";
 	}
 	
+	@RequestMapping("/contato")
+	public String contato(Model model){
+		return "public/contato/contato";
+	}
+	
+	@RequestMapping("/home")
+	public String home(Model model){
+		return "public/home/home";
+	}
+	
+	@RequestMapping("/menu")
+	public String menu(Model model){
+		return "public/layout/menu";
+	}
+	
+	@RequestMapping("/footer")
+	public String footer(Model model){
+		return "public/layout/footer";
+	}
 }

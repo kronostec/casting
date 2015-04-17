@@ -1,6 +1,6 @@
 
 var ctrlObjFixed = function() {
-	alert(1);
+	
 	
 }
 var LayoutClass = function() {

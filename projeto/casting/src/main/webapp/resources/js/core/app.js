@@ -1,4 +1,4 @@
-define(['angularAMD', 'angularRoute','lumx'], function (angularAMD) { 		
+define(['angularAMD', 'angularRoute','lumx'], function (angularAMD) { 	
 	GLOABAL_VARS.app = angular.module("webapp", ['ngRoute','lumx']);
 	GLOABAL_VARS.app.Class = {};
 	GLOABAL_VARS.app.registerClass = function(name, obj) {
@@ -24,21 +24,22 @@ define(['angularAMD', 'angularRoute','lumx'], function (angularAMD) {
 	GLOABAL_VARS.app.config(function ($routeProvider) {
 	    $routeProvider
 		    .when("/home", angularAMD.route({
-		        templateUrl: '/view/home/home.html', 
+		        templateUrl: 'home', 
 		        controller: 'HomeCtrl', 
-		        controllerUrl: '/js/core/controller/HomeCtrl.js'
+		        controllerUrl: 'resources/js/core/controller/HomeCtrl.js'
 		    }))
 		    .when("/contato", angularAMD.route({
-		        templateUrl: '/view/contato/contato.html', 
+		        templateUrl: 'contato', 
 		        controller: 'ContatoCtrl', 
-		        controllerUrl: '/js/core/controller/ContatoCtrl.js'
+		        controllerUrl: 'resources/js/core/controller/ContatoCtrl.js'
 		    }))
 		    .otherwise({redirectTo: "/home"});
 	 });
 
-	GLOABAL_VARS.app.includeScript('Layout','/js/core/entity/Layout', 'head');
-	GLOABAL_VARS.app.includeScript('PageCtrl','/js/core/controller/PageCtrl', 'head');
-	GLOABAL_VARS.app.includeScript('TitlePageDiretiva','/js/core/diretivas/title-page/TitlePageDiretiva', 'head');
+	GLOABAL_VARS.app.includeScript('Layout','resources/js/core/entity/Layout', 'head');
+	GLOABAL_VARS.app.includeScript('PageCtrl','resources/js/core/controller/PageCtrl', 'head');
+	GLOABAL_VARS.app.includeScript('TitlePageDiretiva','resources/js/core/diretivas/title-page/TitlePageDiretiva', 'head');
+	GLOABAL_VARS.app.includeScript('FixedDiretiva','resources/js/core/diretivas/fixed/FixedDiretiva', 'head');
 	
 	return angularAMD.bootstrap(GLOABAL_VARS.app);	
 });

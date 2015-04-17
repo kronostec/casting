@@ -6,7 +6,8 @@ GLOABAL_VARS.app.controller('PageCtrl', function ($scope, LxNotificationService,
 	};
 	
 	var initVars = function() {
-		$scope.pageLoaded = false;		
+		$scope.pageLoaded = false;	
+		$rootScope.scrollTop = 0;
 		$rootScope.layoutConfig = {};
 		$rootScope.titlePage = "Título Default";
 		$rootScope.Layout = GLOABAL_VARS.app.requireClass("Layout");
@@ -24,7 +25,7 @@ GLOABAL_VARS.app.controller('PageCtrl', function ($scope, LxNotificationService,
 	
 	var loadConfiguracoesLayout = function() {
 	   montaLayoutPaginaCarregando();
-	   var load = $http.get('/config/layoutConfig.json');
+	   var load = $http.get('resources/config/layoutConfig.json');
 	   load.then(function(request){
 		   $rootScope.layoutConfig = request.data;
 		   montaLayoutPaginaCarregada();
@@ -39,7 +40,8 @@ GLOABAL_VARS.app.controller('PageCtrl', function ($scope, LxNotificationService,
 		$(function() {
 	        $rootScope.Layout.init();   
 			loadConfiguracoesLayout();
-		})    		    	
+			listenScrolPosition();
+		});    		    	
 	};
 	
 	
@@ -62,7 +64,16 @@ GLOABAL_VARS.app.controller('PageCtrl', function ($scope, LxNotificationService,
     			}
     		}
     	}
-	}
+	};
+		
+	var listenScrolPosition = function() {
+		angular.element(document).on("scroll", function(event) {
+			 $rootScope.$apply(function () {               // 3
+				$rootScope.scrollTop = ($(document).scrollTop());
+				$rootScope.scrollLeft = ($(document).scrollLeft());
+			 });
+		});
+	};
 	
 	
 	

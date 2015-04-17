@@ -16,6 +16,8 @@
 // Dropdown menu
 .dropdown-menu {
     position: absolute;
+    top: 0;
+    right: 0;
     z-index: 1000;
     border-radius: $base-round;
     background-color: $white;
@@ -38,7 +40,7 @@
         opacity: 1;
     }
 }
-    
+
     // Dropdown menu content
     .dropdown-menu__content {
         padding: $base-spacing-unit 0;
