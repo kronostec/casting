@@ -1,4 +1,4 @@
-define(['angularAMD', 'angularRoute','lumx'], function (angularAMD) { 	
+define(['angularAMD', 'angularRoute','lumx','jquery'], function (angularAMD) { 	
 	GLOABAL_VARS.app = angular.module("webapp", ['ngRoute','lumx']);
 	GLOABAL_VARS.app.Class = {};
 	GLOABAL_VARS.app.registerClass = function(name, obj) {
@@ -36,8 +36,10 @@ define(['angularAMD', 'angularRoute','lumx'], function (angularAMD) {
 		    .otherwise({redirectTo: "/home"});
 	 });
 
+	GLOABAL_VARS.app.includeScript('Menu','resources/js/lib/flexnav-master/js/jquery.flexnav', 'head');
 	GLOABAL_VARS.app.includeScript('Layout','resources/js/core/entity/Layout', 'head');
 	GLOABAL_VARS.app.includeScript('PageCtrl','resources/js/core/controller/PageCtrl', 'head');
+	GLOABAL_VARS.app.includeScript('MenuCtrl','resources/js/core/controller/MenuCtrl', 'head');
 	GLOABAL_VARS.app.includeScript('TitlePageDiretiva','resources/js/core/diretivas/title-page/TitlePageDiretiva', 'head');
 	GLOABAL_VARS.app.includeScript('FixedDiretiva','resources/js/core/diretivas/fixed/FixedDiretiva', 'head');
 	

@@ -5,14 +5,17 @@ GLOABAL_VARS.app.directive('fixedTop', ['$document', function($document) {
 		        var obj = $(attr.targetFixed);
 		        if(obj.length == 0){
 		        	obj = element;
-		        }		        
+		        }	
+		        obj.css({
+			    	  position : "relative",
+			    	  top : "0px",
+			    	  zIndex : "10000",
+			    	  
+			    });
 		    	$document.on("scroll", function(event) {
 			    	  var top = attr.fixedTop + "px";
 			    	  obj.css({
-				    	  position : "relative",
-				    	  top : top,
-				    	  zIndex : "10000",
-				    	  
+				    	  top : top				    	  
 				      });
 		    	});
 		    },
@@ -27,11 +30,15 @@ GLOABAL_VARS.app.directive('fixedLeft', ['$document', function($document) {
 		        if(obj == undefined){
 		        	obj = element;
 		        }
+		        obj.css({
+			    	  position : "relative",
+			    	  left : "0px",
+			    	  zIndex : "10000",
+			    	  
+			    });
 		    	$document.on("scroll", function(event) {
 		    	  var left = attr.fixedLeft + "px";	
 		    	  obj.css({
-			    	  position : "relative",
-			    	  zIndex : "10000",
 			    	  left : left
 			      });
 		    	});

@@ -4,8 +4,8 @@ require.config({
     baseUrl: "",
     paths: {
         angular: 'resources/js/lib/bower_components/angular/angular',
-        angularRoute: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min',
-        angularAMD: '//cdn.jsdelivr.net/angular.amd/0.2.0/angularAMD.min',        	
+        angularRoute: 'resources/js/lib/angular/angular-route.min',
+        angularAMD: 'resources/js/lib/angularAMD/angularAMD.min',        	
         jsClass : 'resources/js/lib/js_class/dist/browser/js.class.min',
         underscore : 'resources/js/lib/underscore/underscore',
         phaser : 'resources/js/lib/phaser/phaser.min',
@@ -14,7 +14,7 @@ require.config({
         velocity : 'resources/js/lib/bower_components/velocity/velocity',
         moment : 'resources/js/lib/bower_components/moment/min/moment-with-locales',
         PageCtrl : 'resources/js/core/controller/PageCtrl',
-        app : 'resources/js/core/app'
+        app : 'resources/js/core/app',
     },    
     shim: {//indica dependencias do modulo
         'angularAMD': ['angular'],

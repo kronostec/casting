@@ -12,13 +12,12 @@
 		<link rel="stylesheet" href="resources/js/lib/bower_components/lumx/dist/lumx.css">
 		<link rel="stylesheet" href="resources/css/lumx.css">	
 		<link rel="stylesheet" href="resources/js/lib/bower_components/mdi/css/materialdesignicons.css">
-		<link rel="stylesheet" href="resources/js/lib/lumX-0.3.25/dist/googleFonts.css">	
-		<script data-main="resources/js/main.js" src="resources/js/lib/require/require.js" ></script>		
+		<link rel="stylesheet" href="resources/js/lib/lumX-0.3.25/dist/googleFonts.css">
+		<link rel="stylesheet" href="resources/js/lib/flexnav-master/css/flexnav.css">	
+		<script data-main="resources/js/main.js" src="resources/js/lib/require/require.js" ></script>	
 	</head>
 	<body ng-controller="PageCtrl" ng-init="init()" >		
-		<header  ng-if="pageLoaded"  fixed-top="{{scrollTop}}" >			
-			<div ng-include="'menu'"></div>
-		</header>
+		<header ng-include="'menu'"  fixed-top="{{scrollTop}}" ></header>
 		<div class="container-fluid" ng-if="pageLoaded" >
 			<section ng-view   ></section>	
 		</div>		
