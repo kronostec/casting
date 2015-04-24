@@ -1997,3 +1997,5 @@
 .margin-right-495-neg {margin-right : -495px}
 .margin-right-500 {margin-right : 500px}
 .margin-right-500-neg {margin-right : -500px}
+.no-margin {margin: 0px!important;}
+.no-padding {padding: 0px!important}
