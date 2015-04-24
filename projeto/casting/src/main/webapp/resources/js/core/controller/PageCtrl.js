@@ -28,6 +28,7 @@ GLOABAL_VARS.app.controller('PageCtrl', function ($scope, LxNotificationService,
 	   var load = $http.get('resources/config/layoutConfig.json');
 	   load.then(function(request){
 		   $rootScope.layoutConfig = request.data;
+		   $rootScope.Layout.init($rootScope);   
 		   montaLayoutPaginaCarregada();
        });
 	   load.error(function(data, status, headers, config) {
@@ -37,8 +38,7 @@ GLOABAL_VARS.app.controller('PageCtrl', function ($scope, LxNotificationService,
 	};
 	
 	var initLayout = function() {
-		$(function() {
-	        $rootScope.Layout.init($rootScope);   
+		$(function() {	        
 			loadConfiguracoesLayout();
 		});    		    	
 	};

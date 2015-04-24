@@ -16,6 +16,7 @@ GLOABAL_VARS.app.registerClass("Layout",function() {
 	$scope.initLayout = function() {
 		$(function(){
 			$scopePrivate.listenScrolPosition();
+			$scope.initMenuResponsivo();
 		});
 	};
 	
@@ -27,8 +28,19 @@ GLOABAL_VARS.app.registerClass("Layout",function() {
 			 });
 		});
 	};
-	
-	$scope.initMenuResponsivo = function() {		
+	$scopePrivate.closeMenu = function() {
+		$.sidr('close', 'sidr-right');
+		$.sidr('close', 'sidr-left');		
+	};
+	$scopePrivate.initScriptMenu = function(menu) {	
+		$scopePrivate.closeMenu();
+		var run = $(".flexnav").attr("run");		
+		if(run == "true"){
+			console.log(run);
+			$(".flexnav-content").empty();
+			$(".flexnav-content").append(menu);
+		}
+		$(".flexnav").attr("run","true");
 		$(".flexnav").flexNav({
 			"onSmallMenu" : function() {
 				$scopePrivate.initLayoutMenuSmall();
@@ -39,51 +51,62 @@ GLOABAL_VARS.app.registerClass("Layout",function() {
 			'animationSpeed':     10,            // default for drop down animation speed
 			'buttonSelector':     '.menu-button', // default menu button class name
 			'hover':              true            // would you like hover support?      
+		});	
+		$scopePrivate.configColorMenu();		
+	};
+	
+	
+	
+	$scopePrivate.configColorMenu = function() {
+		if($rootScope.layoutConfig.colors != undefined) {
+			$(".flexnav>li>a").addClass($rootScope.layoutConfig.colors.menu.bgColor);
+			$(".flexnav>li>a").addClass($rootScope.layoutConfig.colors.menu.fontColor);
+			$(".flexnav ul li a").addClass($rootScope.layoutConfig.colors.menu.item.bgColor);
+			$(".flexnav ul li a, .touch-button>i").addClass($rootScope.layoutConfig.colors.menu.item.fontColor);
+			$(".touch-button").css({"background":"none"});
+		}
+	};
+	
+	$scope.initMenuResponsivo = function() {				
+		$scopePrivate.initScriptMenu();
+		var menu = $('.flexnav-content').html();
+		$(window).resize(function() {
+			$scopePrivate.closeMenu();
+			setTimeout(function(){
+				$scopePrivate.initScriptMenu(menu);	
+			},500);					
 		});
 		
-		$("#btnMenuPrincipal").click(function() {
-			var statusMenu = $('.flexnav').attr("data-menu-status");
-			if(statusMenu == "opened"){
-				$scopePrivate.hideMenuSmall();				
-			}else{
-				$scopePrivate.showMenuSmall();
-			}			
-		});
+		$('.btnMenuMobile-left').sidr({
+		      name: 'sidr-left',
+		      source : '#content-left',
+		      side: 'left',
+		});	
+		$('.btnMenuMobile-right').sidr({
+		      name: 'sidr-right',
+		      source : '#content-right',
+		      side: 'right', 
+		});	
 		
+		$(document).delegate(".content", "click", function(){
+			$scopePrivate.closeMenu();
+		});
 	};
 	
 	$scopePrivate.initLayoutMenuSmall = function() {
+		
 		$(".headderSmall").css("display","block");
 		$(".headderLarge").css("display","none");
 		$('.flexnav').attr("data-menu-status", "closed");
-		$('.flexnav').attr("style","overflow:hidden!important;opacity:1!important");		
-		$scopePrivate.resetMenu(true);
+		$('.flexnav').attr("style","overflow:hidden!important;opacity:1!important");
 	};
 	
 	$scopePrivate.initLayoutMenuLarge = function() {
+		
 		$(".headderSmall").css("display","none");
 		$(".headderLarge").css("display","block");
 		$('.flexnav').attr("style","overflow:inherit!important;opacity:1!important");
-		$scopePrivate.resetMenu(true);
 	};
-	
-	$scopePrivate.resetMenu = function(callTrigger) {
-		
-		$('.item-with-ul').find('>ul').each(function(){	
-			var height = $(this).height();
-			var exec = $('.item-with-ul').attr("data-exec");
-			console.log($(this).hasClass("flexnav-show"));
-			if(height > 0 && exec == "true"){
-				$(this).removeClass('flexnav-show');
-				$(this).stop(true, true).animate({
-		            height: ["toggle", "swing"]
-		        }, 1);
-			}
-			$(this).addClass('flexnav-show');
-		});
-		$('.item-with-ul').attr("data-exec", "true");
-	};
-	
 	
 	
 	$scopePrivate.showMenuSmall = function() {

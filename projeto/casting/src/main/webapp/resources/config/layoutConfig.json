@@ -4,7 +4,12 @@
 		"menu" : {
 			"bgColor" : "bgc-indigo-500",
 			"fontColor" : "tc-white-1",
-			"btnColor" : "btn--white"
+			"btnColor" : "btn--white",
+			"item" : {
+				"bgColor" : "bgc-indigo-200",
+				"fontColor" : "tc-white-1",
+				"btnColor" : "btn--white"
+			}
 		}
 	}
 }

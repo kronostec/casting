@@ -35,7 +35,8 @@ define(['angularAMD', 'angularRoute','lumx','jquery'], function (angularAMD) {
 		    }))
 		    .otherwise({redirectTo: "/home"});
 	 });
-
+	
+	GLOABAL_VARS.app.includeScript('MenuMobile','resources/js/lib/sidr-package-1.2.1/jquery.sidr.min', 'head');
 	GLOABAL_VARS.app.includeScript('Menu','resources/js/lib/flexnav-master/js/jquery.flexnav', 'head');
 	GLOABAL_VARS.app.includeScript('Layout','resources/js/core/entity/Layout', 'head');
 	GLOABAL_VARS.app.includeScript('PageCtrl','resources/js/core/controller/PageCtrl', 'head');

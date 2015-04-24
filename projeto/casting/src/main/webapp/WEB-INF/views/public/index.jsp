@@ -14,11 +14,12 @@
 		<link rel="stylesheet" href="resources/js/lib/bower_components/mdi/css/materialdesignicons.css">
 		<link rel="stylesheet" href="resources/js/lib/lumX-0.3.25/dist/googleFonts.css">
 		<link rel="stylesheet" href="resources/js/lib/flexnav-master/css/flexnav.css">	
+		<link rel="stylesheet" href="resources/js/lib/sidr-package-1.2.1/stylesheets/jquery.sidr.dark.css">
 		<script data-main="resources/js/main.js" src="resources/js/lib/require/require.js" ></script>	
 	</head>
 	<body ng-controller="PageCtrl" ng-init="init()" >		
 		<header ng-include="'menu'"  fixed-top="{{scrollTop}}" ></header>
-		<div class="container-fluid" ng-if="pageLoaded" >
+		<div class="container-fluid content" ng-if="pageLoaded" >
 			<section ng-view   ></section>	
 		</div>		
 		<footer ng-include="'footer'" ng-if="pageLoaded" ></footer>				
