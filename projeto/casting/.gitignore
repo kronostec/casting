@@ -1,3 +1,4 @@
-/projeto/casting/.settings/*
-/projeto/casting/.project/
-/projeto/casting/.classpath/
+/.settings/
+/target/
+/.classpath
+/.project
