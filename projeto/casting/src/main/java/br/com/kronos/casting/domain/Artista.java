@@ -1,6 +1,6 @@
 package br.com.kronos.casting.domain;
 
-import java.util.HashSet;
+import java.io.Serializable;
 import java.util.Set;
 
 import org.joda.time.LocalDate;
@@ -9,29 +9,26 @@ import br.com.kronos.casting.domain.enumeration.Agenciamento;
 import br.com.kronos.casting.domain.enumeration.EstadoCivil;
 import br.com.kronos.casting.domain.enumeration.Sexo;
 
-public class Artista {
+public class Artista implements Serializable {
 
-	private final String nome;
+	private static final long serialVersionUID = 7030413227215474036L;
+	
+	private String nome;
 	private String nomeArtistico;
-	private final Sexo sexo;
-	private final LocalDate dataNascimento;
+	private Sexo sexo;
+	private LocalDate dataNascimento;
 	private EstadoCivil estadoCivil;
-	private final String nacionalidade;
-	private final Set<Documento> listaDocumentos;
-	private final Set<Agenciamento> listaAgenciamentos;
-	private final Contatos contatos;
+	private String nacionalidade;
+	private Set<Documento> listaDocumentos;
+	private Set<Agenciamento> listaAgenciamentos;
+	private Contatos contatos;
 
-	public Artista(String nome, String nomeArtistico, Sexo sexo, LocalDate dataNascimento, EstadoCivil estadoCivil, String nacionalidade, Documento documento, Contatos contatos) {
-		this.listaDocumentos = new HashSet<Documento>();
-		this.listaAgenciamentos = new HashSet<Agenciamento>();
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
 		this.nome = nome;
-		this.nomeArtistico = nomeArtistico;
-		this.sexo = sexo;
-		this.dataNascimento = dataNascimento;
-		this.estadoCivil = estadoCivil;
-		this.nacionalidade = nacionalidade;
-		this.listaDocumentos.add(documento);
-		this.contatos = contatos;
 	}
 
 	public String getNomeArtistico() {
@@ -42,6 +39,22 @@ public class Artista {
 		this.nomeArtistico = nomeArtistico;
 	}
 
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 	public EstadoCivil getEstadoCivil() {
 		return estadoCivil;
 	}
@@ -50,32 +63,36 @@ public class Artista {
 		this.estadoCivil = estadoCivil;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public Sexo getSexo() {
-		return sexo;
-	}
-
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
 	public String getNacionalidade() {
 		return nacionalidade;
+	}
+
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
 	}
 
 	public Set<Documento> getListaDocumentos() {
 		return listaDocumentos;
 	}
 
+	public void setListaDocumentos(Set<Documento> listaDocumentos) {
+		this.listaDocumentos = listaDocumentos;
+	}
+
 	public Set<Agenciamento> getListaAgenciamentos() {
 		return listaAgenciamentos;
 	}
 
+	public void setListaAgenciamentos(Set<Agenciamento> listaAgenciamentos) {
+		this.listaAgenciamentos = listaAgenciamentos;
+	}
+
 	public Contatos getContatos() {
 		return contatos;
+	}
+
+	public void setContatos(Contatos contatos) {
+		this.contatos = contatos;
 	}
 
 }

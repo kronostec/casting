@@ -11,14 +11,36 @@ import javax.ws.rs.core.Configuration;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+
 public class CastingWebTarget implements WebTarget {
 
+	private static final String ENDERECO = "http://localhost:8088";
+	
 	private Client cliente;
 	private WebTarget target;
 
 	public CastingWebTarget() {
 		cliente = ClientBuilder.newClient();
-		target = cliente.target("http://localhost:8088");
+
+		target = cliente.target(ENDERECO);
+		target.register(gerarProviderParaJSON());
+	}
+
+	private JacksonJaxbJsonProvider gerarProviderParaJSON() {
+
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, Boolean.FALSE);
+		mapper.registerModule(new JodaModule());
+
+		JacksonJaxbJsonProvider jacksonJaxbJsonProvider = new JacksonJaxbJsonProvider();
+		jacksonJaxbJsonProvider.setMapper(mapper);
+
+		return jacksonJaxbJsonProvider;
+
 	}
 
 	public Configuration getConfiguration() {

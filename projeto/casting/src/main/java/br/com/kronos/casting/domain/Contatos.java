@@ -1,89 +1,32 @@
 package br.com.kronos.casting.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.Serializable;
 import java.util.List;
 
-import br.com.kronos.casting.domain.enumeration.PrioridadeContato;
+public final class Contatos implements Serializable {
 
-public final class Contatos {
+	private static final long serialVersionUID = -6448411507721832302L;
 
-	private final List<Email> listaEmail;
-	private final List<Telefone> listaTelefone;
+	private List<Email> listaEmail;
+	private List<Telefone> listaTelefone;
 	private String skype;
 	private List<WebSite> listaSitesPessoais;
 	private List<String> informacoesAdicionais;
 
-	public Contatos(Email email, Telefone telefone) {
-		this.listaEmail = new ArrayList<Email>();
-		this.listaTelefone = new ArrayList<Telefone>();
-		this.listaEmail.add(email);
-		this.listaTelefone.add(telefone);
+	public List<Email> getListaEmail() {
+		return listaEmail;
 	}
 
-	public void adicionaEmail(Email email) {
-		for (Email emailDaLista : listaEmail) {
-			if (isPrincipal(emailDaLista.getPrioridade())) {
-				throw new IllegalArgumentException("Só pode existir um e-mail prioritario por artista.");
-			}
-		}
-		this.listaEmail.add(email);
+	public void setListaEmail(List<Email> listaEmail) {
+		this.listaEmail = listaEmail;
 	}
 
-	public void removerEmail(Email email){
-		this.listaEmail.remove(email);
-	}
-	
-	public Email pegarEmailPrincipal() {
-		for (Email emailDaLista : listaEmail) {
-			if (isPrincipal(emailDaLista.getPrioridade())) {
-				return emailDaLista;
-			}
-		}
-		throw new RuntimeException("Artista não possui e-mail principal.");
+	public List<Telefone> getListaTelefone() {
+		return listaTelefone;
 	}
 
-	public void substituiEmail(Email original, Email novo) {
-		this.listaEmail.remove(original);
-		this.listaEmail.add(novo);
-	}
-
-	public List<Email> pegarListaEmail() {
-		return Collections.unmodifiableList(this.listaEmail);
-	}
-
-	public void adicionaTelefone(Telefone telefone) {
-		for (Telefone telefoneDaLista : listaTelefone) {
-			if (isPrincipal(telefoneDaLista.getPrioridade())) {
-				throw new IllegalArgumentException("Só pode existir um telefone prioritario por artista.");
-			}
-		}
-	}
-
-	public void removerTelefone(Telefone telefone){
-		this.listaTelefone.remove(telefone);
-	}
-	
-	public Telefone getTelefonePrincipal() {
-		for (Telefone telefoneDaLista : listaTelefone) {
-			if (isPrincipal(telefoneDaLista.getPrioridade())) {
-				return telefoneDaLista;
-			}
-		}
-		throw new RuntimeException("Artista não possui telefone principal.");
-	}
-
-	public void substituiTelefone(Telefone original, Telefone novo) {
-		this.listaTelefone.remove(original);
-		this.listaTelefone.add(novo);
-	}
-
-	public List<Telefone> pegarListaTelefone() {
-		return Collections.unmodifiableList(this.listaTelefone);
-	}
-
-	private boolean isPrincipal(PrioridadeContato prioridade) {
-		return PrioridadeContato.PRINCIPAL.equals(prioridade);
+	public void setListaTelefone(List<Telefone> listaTelefone) {
+		this.listaTelefone = listaTelefone;
 	}
 
 	public String getSkype() {
@@ -93,29 +36,21 @@ public final class Contatos {
 	public void setSkype(String skype) {
 		this.skype = skype;
 	}
-	
-	public void adicionaSite(WebSite site){
-		this.listaSitesPessoais.add(site);
-	}
-	
-	public void removeSite(WebSite site){
-		this.listaSitesPessoais.remove(site);
-	}
-	
-	public List<WebSite> pegarTodosOsSites(){
-		return Collections.unmodifiableList(this.listaSitesPessoais);
-	}
-	
-	public void adicionaInformacoesAdicionais(String informacoes){
-		this.informacoesAdicionais.add(informacoes);
-	}
-	
-	public void removeInformacoesAdicionais(String informacoes){
-		this.informacoesAdicionais.remove(informacoes);
+
+	public List<WebSite> getListaSitesPessoais() {
+		return listaSitesPessoais;
 	}
 
-	public List<String> pegarInformacoesAdicionais(){
-		return Collections.unmodifiableList(this.informacoesAdicionais);
+	public void setListaSitesPessoais(List<WebSite> listaSitesPessoais) {
+		this.listaSitesPessoais = listaSitesPessoais;
 	}
-	
+
+	public List<String> getInformacoesAdicionais() {
+		return informacoesAdicionais;
+	}
+
+	public void setInformacoesAdicionais(List<String> informacoesAdicionais) {
+		this.informacoesAdicionais = informacoesAdicionais;
+	}
+
 }
